@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rakhi Sale — Up to 30% Off</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#7A1B2E;
+    --maroon-dark:#5A1220;
+    --gold:#E3A857;
+    --gold-light:#F3D9A6;
+    --saffron:#E85D2D;
+    --cream:#FFF8ED;
+    --green:#1F5C4A;
+    --ink:#3B1710;
+    --muted:#8A6656;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Poppins',sans-serif;
+    background-color:var(--cream);
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{font-family:'Yeseva One',serif;font-weight:400;}
+
+  /* ===== FORM SECTION ===== */
+  .form-section{
+    max-width:1000px;
+    margin:0 auto;
+    padding:90px 24px 90px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .form-copy .kicker{
+    color:var(--saffron);
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    margin-bottom:10px;
+  }
+  .form-copy h2{
+    font-size:30px;
+    color:var(--maroon-dark);
+    margin-bottom:14px;
+    line-height:1.25;
+  }
+  .form-copy p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.7;
+    margin-bottom:20px;
+  }
+  .form-copy ul{list-style:none;}
+  .form-copy li{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    font-size:14.5px;
+    color:var(--ink);
+    margin-bottom:12px;
+  }
+  .form-copy li::before{
+    content:"❋";
+    color:var(--green);
+    flex-shrink:0;
+    margin-top:1px;
+  }
+
+  .card{
+    background:#fff;
+    border:2px dashed var(--gold);
+    border-radius:20px;
+    padding:34px 30px;
+    position:relative;
+  }
+  .card::before{
+    content:"";
+    position:absolute;
+    top:-10px;left:50%;
+    transform:translateX(-50%);
+    width:60px;height:20px;
+    background:var(--maroon);
+    border-radius:0 0 10px 10px;
+  }
+  .card h3{
+    font-size:22px;
+    color:var(--maroon-dark);
+    text-align:center;
+    margin-bottom:4px;
+  }
+  .card .card-sub{
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:24px;
+  }
+  .field{margin-bottom:18px;}
+  .field label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--maroon-dark);
+    margin-bottom:6px;
+  }
+  .field input,.field textarea{
+    width:100%;
+    border:1.5px solid #EAD9BE;
+    background:#FFFCF6;
+    border-radius:10px;
+    padding:12px 14px;
+    font-family:'Poppins',sans-serif;
+    font-size:14.5px;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .15s ease, box-shadow .15s ease;
+  }
+  .field textarea{resize:vertical;min-height:88px;}
+  .field input:focus,.field textarea:focus{
+    border-color:var(--saffron);
+  }
+  .field .err{
+    color:#B3261E;
+    font-size:12px;
+    margin-top:5px;
+    display:none;
+  }
+  .field.invalid input,.field.invalid textarea{border-color:#B3261E;}
+  .field.invalid .err{display:block;}
+
+  .submit-btn{
+    width:100%;
+    background:var(--maroon);
+    color:#FFF6E9;
+    border:none;
+    padding:14px;
+    font-size:15px;
+    font-weight:600;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:6px;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .submit-btn:hover{background:var(--maroon-dark);transform:translateY(-1px);}
+  .form-note{
+    text-align:center;
+    font-size:11.5px;
+    color:var(--muted);
+    margin-top:12px;
+  }
+
+  .success{
+    display:none;
+    text-align:center;
+    padding:20px 10px;
+  }
+  .success .tick{
+    width:52px;height:52px;
+    border-radius:50%;
+    background:var(--green);
+    color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;
+    margin:0 auto 14px;
+  }
+  .success h3{color:var(--maroon-dark);margin-bottom:6px;}
+  .success p{color:var(--muted);font-size:14px;}
+
+  footer{
+    text-align:center;
+    padding:26px 20px 34px;
+    font-size:12.5px;
+    color:var(--muted);
+    border-top:1px solid #EAD9BE;
+  }
+
+  @media (max-width:760px){
+    .form-section{grid-template-columns:1fr;padding:60px 20px 70px;}
+    .form-copy{order:2;text-align:center;}
+    .form-copy ul{display:inline-block;text-align:left;}
+  }
+</style>
+</head>
+<body>
+
+<section class="form-section" id="rakhi-form">
+  <div class="form-copy">
+    <h2>Tell us what you need, we'll take it from there</h2>
+    <p>Share your details and requirement — number of rakhis, hamper style, or a custom combo — and our team will confirm your order and price over a quick call or WhatsApp message.</p>
+    <ul>
+      <li>Bulk &amp; corporate gifting welcome</li>
+      <li>Pan-India delivery before Raksha Bandhan</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <form id="orderForm" novalidate>
+      <h3>Book your Rakhi order</h3>
+      <p class="card-sub">Takes less than a minute</p>
+
+      <div class="field" id="nameField">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name">
+        <div class="err">Please enter your name</div>
+      </div>
+
+      <div class="field" id="mobileField">
+        <label for="mobile">Mobile / WhatsApp no.</label>
+        <input type="tel" id="mobile" name="mobile" placeholder="10-digit mobile number" maxlength="10">
+        <div class="err">Please enter a valid 10-digit number</div>
+      </div>
+
+      <div class="field" id="reqField">
+        <label for="requirements">Requirements</label>
+        <textarea id="requirements" name="requirements" placeholder="E.g. 2 designer rakhis + sweets hamper, deliver by 25th"></textarea>
+        <div class="err">Please share your requirement</div>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit</button>
+      <p class="form-note">We'll reach out on WhatsApp to confirm your order.</p>
+    </form>
+
+    <div class="success" id="successMsg">
+      <div class="tick">✓</div>
+      <h3>Request received!</h3>
+      <p>Our team will WhatsApp you shortly to confirm your Rakhi order.</p>
+    </div>
+  </div>
+</section>
+
+<footer>Rakhi Sale · Offer valid till stocks last · T&amp;C apply</footer>
+
+<script>
+  const form = document.getElementById('orderForm');
+  const nameField = document.getElementById('nameField');
+  const mobileField = document.getElementById('mobileField');
+  const reqField = document.getElementById('reqField');
+  const nameInput = document.getElementById('name');
+  const mobileInput = document.getElementById('mobile');
+  const reqInput = document.getElementById('requirements');
+
+  mobileInput.addEventListener('input', () => {
+    mobileInput.value = mobileInput.value.replace(/\D/g, '').slice(0,10);
+  });
+
+  function toggleError(fieldEl, isInvalid){
+    fieldEl.classList.toggle('invalid', isInvalid);
+  }
+
+  [nameInput, mobileInput, reqInput].forEach((el) => {
+    el.addEventListener('input', () => {
+      if(el === nameInput) toggleError(nameField, false);
+      if(el === mobileInput) toggleError(mobileField, false);
+      if(el === reqInput) toggleError(reqField, false);
+    });
+  });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+
+    if(nameInput.value.trim().length < 2){
+      toggleError(nameField, true);
+      valid = false;
+    } else {
+      toggleError(nameField, false);
+    }
+
+    if(!/^\d{10}$/.test(mobileInput.value.trim())){
+      toggleError(mobileField, true);
+      valid = false;
+    } else {
+      toggleError(mobileField, false);
+    }
+
+    if(reqInput.value.trim().length < 3){
+      toggleError(reqField, true);
+      valid = false;
+    } else {
+      toggleError(reqField, false);
+    }
+
+    if(!valid) return;
+
+    const submitBtn = form.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
+
+    fetch('https://formsubmit.co/ajax/socialmediaekaani@gmail.com', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        _subject: 'New Rakhi order request',
+        Name: nameInput.value.trim(),
+        Mobile: mobileInput.value.trim(),
+        Requirements: reqInput.value.trim()
+      })
+    })
+    .then(() => {
+      form.style.display = 'none';
+      document.getElementById('successMsg').style.display = 'block';
+    })
+    .catch(() => {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit';
+      alert('Something went wrong. Please try again.');
+    });
+  });
+</script>
+
+</body>
+</html>
